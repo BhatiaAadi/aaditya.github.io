@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: aliceblue;
+        }
+
+        .blog {
+            border: 1px solid #ddd;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+            background: beige;
+        }
+
+        .like-counter {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .like-button {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .comments-section {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        #postCommentBtn {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .comments-box {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        BLOG:1
+    </h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vel cum praesentium, blanditiis cupiditate
+        deserunt dolorum ad beatae nam itaque culpa. Quod corporis non cumque quisquam placeat illo optio officia
+        blanditiis? Nisi beatae totam tempore provident maiores dolorem voluptates ut quo ipsa ratione quam minima
+        cupiditate, reprehenderit sed molestias dignissimos maxime possimus nesciunt, sunt asperiores, expedita nihil.
+        Veniam illo suscipit ex quasi autem laudantium, magni, officia accusantium, quod atque voluptate alias. Maiores
+        sunt animi, incidunt eaque culpa ea debitis aliquid placeat exercitationem, facere, obcaecati in ut consequuntur
+        voluptatem fuga quis explicabo iusto? Porro, temporibus quos nisi officiis eaque ut facere autem eum
+        perspiciatis ex minima quas dolores aliquam nihil, voluptas maiores numquam nesciunt, quia consequuntur culpa?
+        Rerum reiciendis non in sunt error repellat placeat suscipit veritatis, asperiores quam laudantium maiores
+        repudiandae, quae nostrum deserunt commodi libero sapiente ipsam nisi earum! Rem voluptas tempore eos, sint
+        nihil quae provident alias, nemo omnis ipsa consectetur dicta eaque veniam laudantium, voluptatibus pariatur
+        inventore aspernatur at obcaecati animi commodi eius nulla! Dolore, dolores doloremque neque tenetur quae eaque!
+        Est et recusandae culpa harum voluptate consectetur enim, quam iusto veritatis voluptas dolore sequi pariatur.
+        Voluptatum sapiente eaque aliquid blanditiis quo ratione ad laudantium corrupti nemo eos tempora, magni animi
+        iste! Id, quas molestiae! Deleniti, nostrum facere iure impedit temporibus quibusdam consequuntur perferendis
+        dolor repellat aliquam minus. Corrupti fuga quaerat placeat magni necessitatibus perferendis eligendi laboriosam
+        est illum. Cumque, recusandae! Voluptatibus assumenda suscipit quibusdam nam fugiat, harum tenetur? Adipisci,
+        quis nisi ipsa molestiae obcaecati, architecto rem consectetur optio, numquam voluptates eos voluptatem? Ut
+        dolor animi modi culpa numquam perferendis quod iste, minima error optio ex cupiditate quidem suscipit autem
+        inventore blanditiis, eaque sequi nihil ea natus? Ipsam animi aliquid sunt quaerat dolores itaque repellendus
+        corrupti aperiam nemo eos. Nihil recusandae quae cum eum reiciendis nobis in?
+    </p>
+    <div class="blog" id="blog1">
+
+        <h2><a href="blog1.html" target="_blank"></a></h2>
+        <div class="like-counter">
+            <button id="like-button">👍 Like</button>
+            <span id="like-count">Likes</span>
+        </div>
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <textarea id="commentsInput_blog1" rows="4" cols="50" placeholder="Add your comment..."></textarea>
+            <button id="postCommentBtn_blog1" onclick="postComment('blog1')">Post Comment</button>
+            <div class="comments-box" id="commentsBox_blog1"></div>
+        </div>
+    </div>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const likeButton = document.getElementById("like-button");
+    const likeCount = document.getElementById("like-count");
+
+    let currentLikes = parseInt(localStorage.getItem("likes")) || 0;
+    likeCount.textContent = currentLikes+"likes";
+    likeButton.addEventListener("click", function () {
+        currentLikes++;
+        likeCount.textContent = currentLikes+"likes";
+        localStorage.setItem("likes", currentLikes);
+    });
+});
+
+        // Function to post comments and store in local storage
+        function postComment(blogId) {
+            var commentInput = document.getElementById('commentsInput_blog1');
+            var comments = localStorage.getItem(blogId + '_comments') || '[]';
+            comments = JSON.parse(comments);
+            comments.push(commentInput.value);
+            localStorage.setItem(blogId + '_comments', JSON.stringify(comments));
+            commentInput.value = ''; // Clear textarea after posting
+            showComments(blogId);
+        }
+
+        // Function to show comments from local storage
+        function showComments(blogId) {
+            var comments = localStorage.getItem(blogId + '_comments') || '[]';
+            comments = JSON.parse(comments);
+            var commentsBox = document.getElementById('commentsBox_blog1');
+            commentsBox.innerHTML = '<h4>Comments</h4>';
+            comments.forEach(function (comment) {
+                commentsBox.innerHTML += '<p>' + comment + '</p>';
+            });
+        }
+
+        // Initialize like counters and comments boxes on page load
+        window.onload = function () {
+            likeBlog('blog1');
+            showComments('blog1');
+        };
+    </script>
+
+</body>
+
+</html>

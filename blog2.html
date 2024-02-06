@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: aliceblue;
+        }
+
+        .blog {
+            border: 1px solid #ddd;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+            background: beige;
+        }
+
+        .like-counter {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .like-button {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .comments-section {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        #postCommentBtn {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .comments-box {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        BLOG:2
+    </h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sequi omnis repellendus soluta ex enim, pariatur est
+        debitis veritatis, eos labore rerum asperiores, ea qui fugiat tenetur obcaecati deleniti dolores. Debitis
+        laboriosam vero voluptatem doloribus deleniti impedit eveniet ut ea dicta distinctio at dolores reprehenderit,
+        voluptas nisi? Sunt accusantium, numquam, aliquam cupiditate ducimus modi unde dolore impedit maxime dolorem
+        nemo tenetur excepturi eveniet, possimus consequatur recusandae repellendus fugiat totam ex dolores dicta?
+        Laudantium, nemo esse. Ex voluptatem incidunt sunt exercitationem nam a, veritatis architecto saepe laudantium
+        eaque perferendis, consequuntur maiores necessitatibus. Fugit suscipit dolor ea cumque nihil corrupti saepe
+        minus ipsum adipisci itaque sit eveniet asperiores blanditiis quo illo a eaque explicabo, sed et dignissimos
+        iure at, laudantium modi. Expedita perspiciatis, commodi laborum facilis odio similique maiores ab facere
+        temporibus repudiandae reiciendis saepe explicabo. Eum enim atque repellat autem aut commodi repudiandae
+        veritatis sint laudantium minima, quia quas iure iste officia vel qui omnis aliquid! Nisi corrupti ab optio
+        illum provident harum esse vel pariatur distinctio laborum deserunt quis, ipsam quasi eum, quibusdam enim fuga
+        dolorum. Nemo sed iste omnis commodi, quos ipsam exercitationem quidem natus libero impedit hic quaerat
+        molestias laboriosam temporibus, officiis quas quia voluptatem obcaecati dolorem voluptatum asperiores non.
+        Dolorum beatae laborum delectus nisi rem nobis ullam pariatur magnam, placeat quidem natus, perspiciatis nihil
+        possimus quas! Iste, quisquam quo. Aspernatur quas id similique aliquam, animi vitae eligendi nostrum delectus
+        maiores odio suscipit nihil perferendis quasi recusandae ea exercitationem iure qui, deleniti illo fugit? Sequi
+        sapiente atque temporibus laudantium mollitia non eaque, voluptatem harum tenetur cumque neque eos beatae soluta
+        earum quis, labore vero blanditiis minus debitis repellat facere omnis dolores deserunt. Culpa eaque nobis
+        sapiente iusto rem quia illo recusandae ratione praesentium nesciunt nisi qui quidem in aperiam vero totam
+        architecto placeat fugiat repudiandae tempore quos sit itaque, sint beatae. Nam porro nostrum corporis, minima
+        illo assumenda eum aperiam, odio aspernatur sequi officiis dolore dolorem. Porro dignissimos iste est atque,
+        voluptatum libero eos officiis illum sint quo corporis quaerat! Cumque illo repellendus suscipit numquam iure,
+        saepe ad error voluptas deserunt, eligendi amet molestiae autem impedit doloremque in voluptatem voluptatum
+        illum et aut porro quae! Molestias dignissimos veritatis dolorum vel voluptatibus vero quod modi illum, aliquid
+        autem soluta eveniet nesciunt, exercitationem sapiente ullam ad? Non ea officiis molestias temporibus accusamus
+        accusantium nobis excepturi et illo fugiat? Quisquam laudantium debitis optio suscipit quod numquam labore
+        similique dolorem quaerat rem.
+    </p>
+    <div class="blog" id="blog2">
+
+        <h2><a href="blog1.html" target="_blank"></a></h2> 
+        <div class="like-counter">
+            <button id="like-button">👍 Like</button>
+            <span id="like-count">Likes</span>
+        </div>
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <textarea id="commentsInput_blog1" rows="4" cols="50" placeholder="Add your comment..."></textarea>
+            <button id="postCommentBtn_blog1" onclick="postComment('blog1')">Post Comment</button>
+            <div class="comments-box" id="commentsBox_blog1"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Function to increment likes for a specific blog
+        document.addEventListener("DOMContentLoaded", function () {
+    const likeButton = document.getElementById("like-button");
+    const likeCount = document.getElementById("like-count");
+
+    let currentLikes = parseInt(localStorage.getItem("likes")) || 0;
+    likeCount.textContent = currentLikes+"likes";
+    likeButton.addEventListener("click", function () {
+        currentLikes++;
+        likeCount.textContent = currentLikes+"likes";
+        localStorage.setItem("likes", currentLikes);
+    });
+});
+
+
+
+        // Function to post comments and store in local storage
+        function postComment(blogId) {
+            var commentInput = document.getElementById('commentsInput_' + blogId);
+            var comments = localStorage.getItem(blogId + '_comments') || '[]';
+            comments = JSON.parse(comments);
+            comments.push(commentInput.value);
+            localStorage.setItem(blogId + '_comments', JSON.stringify(comments));
+            commentInput.value = ''; // Clear textarea after posting
+            showComments(blogId);
+        }
+
+        // Function to show comments from local storage
+        function showComments(blogId) {
+            var comments = localStorage.getItem(blogId + '_comments') || '[]';
+            comments = JSON.parse(comments);
+            var commentsBox = document.getElementById('commentsBox_' + blogId);
+            commentsBox.innerHTML = '<h4>Comments</h4>';
+            comments.forEach(function (comment) {
+                commentsBox.innerHTML += '<p>' + comment + '</p>';
+            });
+        }
+
+
+        window.onload = function () {
+            likeBlog('blog2');
+            // likeBlog('blog2');
+            showComments('blog2');
+            // showComments('blog2');
+        };
+    </script>
+
+</body>
+
+</html>

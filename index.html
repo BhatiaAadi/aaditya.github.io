@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaditya Bhatia :Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0222350275.js" crossorigin="anonymous"></script>
+</head>
+<button onclick="toggleNightMode()">Toggle Night Mode</button>
+
+<body>
+
+    <!-- <img src="images/photo.jpeg" alt="Image"> -->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.jpeg" class="logo">
+
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#Blog">Blog</a></li>
+                    <li><a href="#contact">Contact me</a></li>
+                    <li><a href="#Resume">Resume</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Student at IIIT Hyd</p>
+                <h1>I'm pursuing <br>my B-Tech<br>+MS Degree<br> in CLD</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/photo2.jpeg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>
+                        <br>🚀 Hi there! I'm a passionate student at IIIT Hyderabad, on a fascinating journey pursuing a
+                        dual-degree in Computational Linguistics. 🎓 This unique blend merges computer science
+                        engineering with a master's in linguistics through research. <br>
+
+                        In my academic journey, I've showcased my dedication with an outstanding 99% in 10th grade and
+                        an impressive 94% in 12th grade boards.<br>
+
+                        Beyond the books, I thrive in diverse interests! 🌟 I've immersed myself in Model United Nations
+                        (MUNs), honing my skills in diplomacy and global affairs. <br>🤝 In school, I proudly
+                        represented my batch till class 10, showcasing leadership early on.
+
+                        Speaking of leadership, I proudly serve as the elected representative of my batch at the
+                        college, chosen through a democratic voting process.<br><br><br>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab(event,'skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab(event,'achievements')">Achievements</p>
+                        <p class="tab-links" onclick="opentab(event,'education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Coding:C,Python,Html,Css,JS<br></span></li>
+                            <li><span>Leadership<br></span></li>
+                            <li><span>Acting<br></span></li>
+                            <li><span>Debating<br></span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="achievements">
+                        <ul>
+                            <li><span>Coding</span><br>1st year Student at IIIT Hyd</li>
+                            <li><span>Leadership</span><br>Member of Student's Parliament in school and college</li>
+                            <li><span>Debating</span><br>Participation in various MUNs</li>
+                            <li><span>Acting and Drama</span><br>Winning in different interschool plays</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023</span><br>B-tech and MS from IIIT Hyd </li>
+                            <li><span>2021</span><br>JEE Prep from Learnify </li>
+                            <li><span>2021</span><br>Studied at MDPS </li>
+                            <li><span>2019</span><br>Studied at DAVPS </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title"><br><br>My <S></S>Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Front-End Developing</h2>
+                    <p>I am am front-end Developer developing websites using my knowledge of html,css and JS.I like to
+                        develop websites in my free time.</p>
+                    <!-- <a href="#"> learn more</a> -->
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Coding</h2>
+                    <p>I know the languages and have the experience to code in C and Python. i also take part in
+                        programming club events. Ialso give codeforces contests regularly
+
+                    </p>
+                    <!-- <a href="#"> learn more</a> -->
+                </div>
+                <div>
+                    <i class="fa-solid fa-l"></i>
+                    <h2>Leadership</h2>
+                    <p>I am resposible and take the responsibility of leading when necessary.I was the prefect in my
+                        school from 8-10 and also I am the member of student's Parliament in IIT Hyd</p>
+                    <!-- <a href="#"> learn more</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Blog">
+        <div class="container">
+            <h1 class="sub-title"><br><br><br>My <S></S>Blogs</h1>
+            <div class="Blogs">
+                <h2><a href="blog1.html" target="_blank">Blog 1</a></h2>
+
+
+                <h2><a href="blog2.html" target="_blank">Blog 2</a></h2>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class=container>
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title"><br><br><br><br>Contact Me<br></h1>
+                    <div class="Blogs">
+
+                        <a href="https://www.facebook.com/profile.php?id=100093350950369&mibextid=LQQJ4d"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/bhatia_aaditya?igsh=NTBocHE4ZGFuNHoy&utm_source=qr"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/BhatiaAadi"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:aadityabhatia2801@gmail.com"><i class="fa-solid fa-envelope"><br></i></a>
+                    </div>
+                </div>
+                <!-- <div class="contact-right" -->
+            </div>
+        </div>
+    </div>
+    <div id="Resume">
+        <div class="container">
+            <div class="Resume">
+                <h1 class="sub-title"><br><br><br>Resume</h1>
+                <div class="Blogs">
+                    <p><a href="file:/home/bhatiaaaditya2006/Documents/Sem:1-2/ISS/Ass1/Lab Report 1 DSM.pdf">Download
+                            Resume<br><br><br><br></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        
+        function toggleNightMode() {
+            document.body.classList.toggle('night-mode');
+            // Check if night mode is currently active
+            var isNightMode = document.body.classList.contains('night-mode');
+
+            // Toggle text or icon based on the mode
+            var nightModeButton = document.getElementById('nightModeButton');
+            if (isNightMode) {
+                nightModeButton.innerHTML = 'Switch to Light Mode';
+            } else {
+                nightModeButton.innerHTML = 'Switch to Night Mode';
+            }
+        }
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(event, tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link")
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+        function likeBlog(blogId) {
+            var likesElement = document.getElementById('likes_' + blogId);
+            var currentLikes = parseInt(likesElement.innerHTML.split(' ')[0]);
+            likesElement.innerHTML = (currentLikes + 1) + ' Likes';
+        }
+        function postComment(blogId) {
+            var commentTextarea = document.getElementById('comments_' + blogId);
+            var comments = localStorage.getItem(blogId + '_comments') || '[]';
+            comments = JSON.parse(comments);
+            comments.push(commentTextarea.value);
+            localStorage.setItem(blogId + '_comments', JSON.stringify(comments));
+            commentTextarea.value = ''; // Clear textarea after posting
+            showComments(blogId);
+        }
+
+        // Function to show comments from local storage
+        function showComments(blogId) {
+            var comments = localStorage.getItem(blogId + '_comments') || '[]';
+            comments = JSON.parse(comments);
+            var commentsBox = document.getElementById('commentsBox_' + blogId);
+            commentsBox.innerHTML = '<h4>Comments</h4>';
+            comments.forEach(function (comment) {
+                commentsBox.innerHTML += '<p>' + comment + '</p>';
+            });
+        }
+        window.onload = function () {
+            likeBlog('blog1');
+            likeBlog('blog2');
+            showComments('blog1');
+            showComments('blog2');
+        };
+
+        // Show comments when the page loads
+        showComments('blog1');
+        showComments('blog2');
+    </script>
+    <script>
+        var sidemneu = document.getElementById("sidemenu");
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+</body>
+
+</html>
